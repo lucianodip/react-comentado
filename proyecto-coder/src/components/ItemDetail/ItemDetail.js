@@ -1,4 +1,5 @@
 import './ItemDetail.css'
+import {ContadorUnidades} from '../contadorUnidades/contadorUnidades'
 
 export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) => {
 
@@ -20,6 +21,9 @@ export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) =>
                 <p>{desc}</p>
                 <br/>
                 <h5>Precio: ${precio}</h5>
+                <br/>
+                <ContadorUnidades/>
+
             </div>
             
 
