@@ -1,6 +1,7 @@
 import { Button, Card } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 
+
 export const CardStock = ( {id, nombre, precio, img, desc} ) => {
 
     return (
@@ -8,9 +9,9 @@ export const CardStock = ( {id, nombre, precio, img, desc} ) => {
             <Card.Img variant="top" src={img} />
             <Card.Body>
                 <Card.Title>{nombre}</Card.Title>
-                <Card.Text>
+                {/* <Card.Text>
                     {desc}
-                </Card.Text>
+                </Card.Text> */}
                 <Card.Text>
                     Precio: ${precio}
                 </Card.Text>
