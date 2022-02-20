@@ -6,11 +6,17 @@ import {BrowserRouter, Routes, Route,Navigate} from 'react-router-dom'
 import { Nosotros } from './pages/Nosotros'
 import { Contacto } from './pages/Contacto'
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
+import { CartContext, CartProvider } from './context/CartContext'
+import { useState } from 'react';
+import{Cart} from "./components/Cart/Cart";
+
 
 function App() {
-  return (
     
-      <BrowserRouter>
+    return (
+        
+        <CartProvider>
+        <BrowserRouter>
           <NavBar/>
 
           <Routes>
@@ -21,11 +27,12 @@ function App() {
               {/* <Route path="./pages/Nosotros" element={ <Nosotros /> } />
               <Route path="./pages/Contacto" element={ <Contacto /> } />   */}
               <Route path='*' element={ <Navigate to='/'/> }/>
+              <Route path='/cart' element={ <Cart/> }/>
+
 
           </Routes>
-      </BrowserRouter>
-      
-    
+        </BrowserRouter>
+        </CartProvider>
   );
 }
 

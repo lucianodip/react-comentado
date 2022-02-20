@@ -5,7 +5,7 @@ export const stock = [
         desc: 'La remera Nike Rise 365 está confeccionada con datos informados por los corredores para refrescarse en las áreas donde lo necesitas.',
         precio: 5999,
         img: require('../recursos/img/remeranike.jpg'),
-        stock: 5,
+        stock: 3,
         categoria: 'indumentariamasculina'
     },
     {

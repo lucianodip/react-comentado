@@ -2,18 +2,18 @@ import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
 
 
-export const ContadorUnidades = () => {
+export const ContadorUnidades = ({max,min=0,contador,setContador}) => {
     
-    const [contador, setContador]= useState(1);
+    
 
     const aumentar = (numero) => {
-        setContador(contador+numero);
+        //si el contador es menor que el max && (simplificar IF)
+        contador < max && setContador(contador+numero);
     }
     
     const disminuir = (numero) => {
-        if(contador>=2){
-        setContador(contador-numero);
-        }
+        contador > min && setContador(contador-numero);
+        
     }
     
     return (
