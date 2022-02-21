@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
 
 
-export const ContadorUnidades = ({max,min=0,contador,setContador}) => {
+export const ContadorUnidades = ({max,min=0,contador,setContador,handleAgregar}) => {
     
     
 
@@ -15,6 +15,7 @@ export const ContadorUnidades = ({max,min=0,contador,setContador}) => {
         contador > min && setContador(contador-numero);
         
     }
+    
     
     return (
         <>
@@ -29,6 +30,14 @@ export const ContadorUnidades = ({max,min=0,contador,setContador}) => {
             className="btn btn-secondary"
             onClick={()=> disminuir(1)}
         >-</Button>
+        <br/>
+            <Button 
+                className=" btn btn-secondary my-3"
+                onClick={handleAgregar}
+            
+            >Agregar al carrito
+
+            </Button>
 
         </>
     )

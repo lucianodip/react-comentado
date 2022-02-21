@@ -63,14 +63,9 @@ export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) =>
                         min={1} 
                         contador={cantidad} 
                         setContador={setCantidad}
+                        handleAgregar={handleAgregar}
                     />
-                    <br/>
-                    <button 
-                        className=" btn btn-secondary my-3"
-                        onClick={handleAgregar}
-                    >
-                        Agregar al carrito
-                    </button>
+                    
                 </>
             }
             
