@@ -9,28 +9,11 @@ import { Link } from 'react-router-dom'
 
 export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) => {
 
-    const [cantidad, setCantidad] = useState(0);
 
-    
     //consumir contexto que viene de app ----------------------------------------------------------------
 
     const {cart, agregarAlCarrito, isInCart} =  useContext(CartContext)
 
-    //------------------------------------------------------------------
-
-    
-    const handleAgregar = ()    => {   
-        if (cantidad===0) return 
-        
-        if(!isInCart(id)){
-
-            const addItem = {
-                id, nombre, precio, stock, cantidad
-            }
-            agregarAlCarrito(addItem);
-        }
-    }
-    
     //------------------------------------------------------------------
 
     return (
@@ -61,9 +44,11 @@ export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) =>
                     <ContadorUnidades 
                         max={stock} 
                         min={1} 
-                        contador={cantidad} 
-                        setContador={setCantidad}
-                        handleAgregar={handleAgregar}
+                        id={id}
+                        nombre={nombre}
+                        precio={precio}
+                        stock={stock}
+                        
                     />
                     
                 </>
