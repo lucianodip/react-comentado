@@ -12,9 +12,17 @@ export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) =>
 
     //consumir contexto que viene de app ----------------------------------------------------------------
 
-    const {cart, agregarAlCarrito, isInCart} =  useContext(CartContext)
-
+    const {agregarAlCarrito, isInCart} =  useContext(CartContext)
+    
     //------------------------------------------------------------------
+
+    const onAdd = (cantidad) => {
+        
+        const itemAdd = {
+            id, nombre, img, desc, precio, stock, cantidad
+        }
+        agregarAlCarrito(itemAdd)
+    }
 
     return (
         <div className="contenedor-ditail">
@@ -35,6 +43,7 @@ export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) =>
             <br/>
 
             {  
+                
                 isInCart(id)
                 ?   <Link to='/cart' className="btn btn-secondary my-3">    
                         Finalizar comprar 
@@ -44,10 +53,8 @@ export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) =>
                     <ContadorUnidades 
                         max={stock} 
                         min={1} 
-                        id={id}
-                        nombre={nombre}
-                        precio={precio}
-                        stock={stock}
+                        onAdd={onAdd}
+                        
                         
                     />
                     

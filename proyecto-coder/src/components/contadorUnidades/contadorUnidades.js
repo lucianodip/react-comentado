@@ -1,14 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
-import {CartContext} from '../../context/CartContext'
 
 
-export const ContadorUnidades = ({max,min=0,id, nombre, precio, stock}) => {
+export const ContadorUnidades = ({max,min=0,onAdd}) => {
     
-    const [cantidad, setCantidad] = useState(0);
+    const [cantidad, setCantidad] = useState(min);
 
-
-    const {cart, agregarAlCarrito, isInCart} =  useContext(CartContext)
 
     const aumentar = (numero) => {
         //si el contador es menor que el max && (simplificar IF)
@@ -19,20 +16,7 @@ export const ContadorUnidades = ({max,min=0,id, nombre, precio, stock}) => {
         cantidad > min && setCantidad(cantidad-numero);
         
     }
-
-    const handleAgregar = ()    => {   
-        if (cantidad===0) return 
-        
-        if(!isInCart(id)){
-
-            const addItem = {
-                id, nombre, precio, stock, cantidad
-            }
-            agregarAlCarrito(addItem);
-        }
-    }
-    
-    
+ 
     return (
         <>
 
@@ -51,7 +35,7 @@ export const ContadorUnidades = ({max,min=0,id, nombre, precio, stock}) => {
         <br/>
             <Button 
                 className=" btn btn-secondary my-3"
-                onClick={handleAgregar}
+                onClick={() =>onAdd(cantidad)}
             
             >Agregar al carrito
 
