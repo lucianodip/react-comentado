@@ -9,10 +9,9 @@ export const CartProvider = ({children}) => {
     const [cart, setCart] = useState([]);
 
     //agrega el elemento al carrito haciendo un spreed en el setcart
-    const agregarAlCarrito = (item) => {
-        setCart([...cart, item])
+     const agregarAlCarrito = (item) => {
+         setCart([...cart, item])
     }
-  
 
     //recorre el array card comparando los id de los objetos con el id que viene por parametro
     //el metodo some retorna un booleano
@@ -35,6 +34,11 @@ export const CartProvider = ({children}) => {
         setCart([])
     } 
 
+    const eliminarItem = (id) => {
+        setCart( cart.filter((prod) => prod.id !== id) )
+    }
+
+   
     
     
     return (
@@ -45,7 +49,8 @@ export const CartProvider = ({children}) => {
                 isInCart,
                 cantidadCart,
                 totalCart,
-                vaciarCart
+                vaciarCart,
+                eliminarItem
             }
         }>
             {children}
