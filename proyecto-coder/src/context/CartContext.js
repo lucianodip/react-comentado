@@ -1,11 +1,12 @@
 import { Children, createContext, useState } from "react";
  
-
+//creamos el contexto con el cual distribuiremos todas las funciones que creemos 
 export const CartContext = createContext();
 
-
+//Envolvemos todo el app.js en un provider y aca lo creamos  
 export const CartProvider = ({children}) => {
 
+    //Creamos el carrito
     const [cart, setCart] = useState([]);
 
     //agrega el elemento al carrito haciendo un spreed en el setcart
@@ -40,7 +41,8 @@ export const CartProvider = ({children}) => {
 
    
     
-    
+    //desde context creado al principio usamos la funcion provider para
+    //lograr distribuir todas las funciones
     return (
         <CartContext.Provider value={
             {
